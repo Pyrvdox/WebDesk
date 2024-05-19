@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import CustomUser
+from django.contrib.auth import authenticate
 
 #Create serializers here
 class RegisterSerializer(serializers.ModelSerializer):
@@ -24,10 +25,22 @@ class RegisterSerializer(serializers.ModelSerializer):
             user.save()
 
             return user
+        
 
+class LoginSerializer(serializers.Serializer):
+    email = serializers.CharField()
+    password = serializers.CharField(write_only=True)
+
+    def validate(self, data):
+        user = authenticate(**data)
+        if user and user.is_active:
+            return user
+        raise serializers.ValidationError("Incorrect login data!")
+        
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ("id","username","email")
+
 
