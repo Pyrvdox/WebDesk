@@ -26,6 +26,7 @@ const HomeComponent = () => {
                 console.log(error.response?.data);
                 setUserInfo(false)
                 refreshExpiredTokenHandler()
+                getUserData()
             }
         }
         getUserData();
