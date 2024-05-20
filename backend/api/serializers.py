@@ -12,19 +12,21 @@ class RegisterSerializer(serializers.ModelSerializer):
         fields = ("id", "username", "email","password1","password2")
         extra_kwargs = {"password":{"write_only": True}}
 
-        def validate(self, data):
-            if data['password1'] != data['password2']:
-                raise serializers.ValidationError("Passwords are not the same!")
+    def validate(self, data):
+        if data['password1'] != data['password2']:
+            raise serializers.ValidationError("Passwords are not the same!")
             
-        def create(self, validated_data):
-            password = validated_data['password1']
+        return data
+            
+    def create(self, validated_data):
+        password = validated_data['password1']
 
-            user = CustomUser(email=validated_data['email'],
-                              username=validated_data['username'])
-            user.set_password(password)
-            user.save()
+        user = CustomUser(email=validated_data['email'],
+                              username=validated_data['username'],)
+        user.set_password(password)
+        user.save()
 
-            return user
+        return user
         
 
 class LoginSerializer(serializers.Serializer):
