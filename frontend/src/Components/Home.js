@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import refreshExpiredTokenHandler from "../utils/refreshexpired";
 
 const HomeComponent = () => {
 
@@ -24,6 +25,7 @@ const HomeComponent = () => {
             }catch(error){
                 console.log(error.response?.data);
                 setUserInfo(false)
+                refreshExpiredTokenHandler()
             }
         }
         getUserData();
@@ -55,7 +57,7 @@ const HomeComponent = () => {
     return(
         <>
             <h1>Home Page</h1>
-            <h1>{userInfo ? userInfo.username : "Loading ..."}</h1>
+            <h1>{userInfo ? userInfo.username : "Loading..."}</h1>
             <button onClick={handleLogout}>Logout</button>
         </>
     )
