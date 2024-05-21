@@ -44,8 +44,8 @@ const LoginComponent = () => {
             }
             
     return(
-        <>
-        	<h2>Login:</h2>
+        <div>
+        	<h1>WebDesk</h1>
 			<form>
 	
 				<label>email:</label>
@@ -74,7 +74,7 @@ const LoginComponent = () => {
                 <br/>
                 <a href="register">Sign Up</a>
 			</form>
-        </>
+        </div>
     )
 };
 

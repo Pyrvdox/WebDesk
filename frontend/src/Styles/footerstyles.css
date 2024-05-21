@@ -1,0 +1,4 @@
+.footer-contaier {
+    display: flex;
+    justify-content: space-between;
+}

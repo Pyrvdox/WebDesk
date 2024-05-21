@@ -50,26 +50,32 @@ const NavBar = () => {
                 await axios.post("http://127.0.0.1:8000/api/logout/", {"refresh": refreshToken}, config)
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
+                setUserInfo(null)
                 console.log("Logout successful!")
                 navigate('/')
+                
             }
         } catch(error){
             console.log(error.response)
-        }
+            refreshExpiredTokenHandler()
+            handleLogout()
+        }   
     }
 
     return(
+        <>
         <div className="nav">
-            <span>
-                <h1>{userInfo ? userInfo.username : "Loading..."}</h1>
-            </span>
-            <span>
-                <a href="home"><h1>WebDesk</h1></a>
-            </span>
-            <span>
+            <div>
+                <h1>WebDesk</h1>
+            </div>
+            <div className="left-nav">
+                <h1>{userInfo ? userInfo.username : ""}</h1>
+                <a href="home"><h1>Apps</h1></a>
                 <button onClick={handleLogout}>Logout</button>
-            </span>
+            </div>
         </div>
+        </>
+
     )
 };
 
