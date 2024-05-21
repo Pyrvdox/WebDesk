@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import '../Styles/frontpages.css'
 
 const RegisterComponent = () => {
 
@@ -40,8 +41,9 @@ const RegisterComponent = () => {
     }
 
     return(
-        <div>
-        <h2>Register:</h2>
+        <section className="centered-section">
+        <div className="front-container">
+        <h2>Register</h2>
         <form>
             <label>username:</label>
             <br />
@@ -87,9 +89,12 @@ const RegisterComponent = () => {
                 Register
             </button>
             <br/>
+            <br/>
             <a href="/">Already have an account ? Log in</a>
         </form>
     </div>
+        </section>
+        
     )
 };
 

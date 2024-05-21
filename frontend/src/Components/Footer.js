@@ -4,7 +4,7 @@ import '../Styles/footerstyles.css'
 const Footer = () => {
 
     return(
-        <section>
+        <section className="footer-section">
             <div className="footer-container">
                 <a href="">Informations</a>
                 <a href="">Privacy</a>
@@ -13,8 +13,6 @@ const Footer = () => {
                 <a href="">Cookie Settings</a>
                 <a href="">Career</a>
                 <a href="">Blog</a>
-            </div>
-            <div className="footer-container">
                 <a href="">© 2024 Lorem Ipsum Incorporated</a>
             </div>
         </section>

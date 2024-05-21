@@ -44,7 +44,8 @@ const LoginComponent = () => {
             }
             
     return(
-        <div>
+        <section className="centered-section">
+        <div className="front-container">
         	<h1>WebDesk</h1>
 			<form>
 	
@@ -67,14 +68,17 @@ const LoginComponent = () => {
 				></input>
 				
 				<br />
-        <br/>
+                 <br/>
 				<button type="submit" disabled={isLoading} onClick={handleSubmit}>
 					Login
 				</button>
                 <br/>
+                <br/>
                 <a href="register">Sign Up</a>
 			</form>
         </div>
+        </section>
+        
     )
 };
 
