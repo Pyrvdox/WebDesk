@@ -49,8 +49,8 @@ const LoginComponent = () => {
         	<h1>WebDesk</h1>
 			<form>
 	
-				<label>email:</label>
-				<br />
+				<label>Email:</label>
+
 				<input
 					type="email"
 					name="email"
@@ -58,8 +58,8 @@ const LoginComponent = () => {
 					onChange={handleChange}
 				></input>
 				<br />
-				<label>password:</label>
-				<br />
+				<label>Password:</label>
+
 				<input
 					type="password"
 					name="password"
@@ -68,7 +68,7 @@ const LoginComponent = () => {
 				></input>
 				
 				<br />
-                 <br/>
+                <br/>
 				<button type="submit" disabled={isLoading} onClick={handleSubmit}>
 					Login
 				</button>

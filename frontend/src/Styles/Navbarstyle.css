@@ -1,12 +1,38 @@
 .nav {
-    background-color: black;
+    background-color: #111111; 
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1rem; 
     color: white;
+    max-height: 1.2vh;
+}
+
+.nav h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: 'Arial', sans-serif;
 }
 
 .right-nav {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
     gap: 15px;
+}
+
+.nav-link, .nav-button {
+    background: none;
+    border: none;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.3s, background-color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.nav-link:hover, .nav-button:hover {
+    color: #007bff;
+    background-color: rgba(0, 123, 255, 0.1);
 }

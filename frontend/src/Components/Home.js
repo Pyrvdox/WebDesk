@@ -5,10 +5,15 @@ import '../Styles/homestyles.css'
 const HomeComponent = () => {
 
     return(
+        <>
+        <NavBar />
         <section className="home-section">
-            <NavBar />
-            <h1>Home Page</h1>
+            <div className="content-bar">
+                <h1>Hello</h1>
+            </div>
         </section>
+        </>
+
     )
 };
 

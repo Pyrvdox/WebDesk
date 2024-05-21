@@ -43,10 +43,9 @@ const RegisterComponent = () => {
     return(
         <section className="centered-section">
         <div className="front-container">
-        <h2>Register</h2>
+        <h2>Create an account</h2>
         <form>
             <label>username:</label>
-            <br />
             <input
                 type="text"
                 name="username"
@@ -56,7 +55,6 @@ const RegisterComponent = () => {
             <br />
             <br />
             <label>email:</label>
-            <br />
             <input
                 type="email"
                 name="email"
@@ -66,7 +64,6 @@ const RegisterComponent = () => {
             <br />
             <br />
             <label>password:</label>
-            <br />
             <input
                 type="password"
                 name="password1"
@@ -76,7 +73,6 @@ const RegisterComponent = () => {
             <br />
             <br />
             <label>confirm password:</label>
-            <br />
             <input
                 type="password"
                 name="password2"
