@@ -68,10 +68,10 @@ const NavBar = () => {
             <div>
                 <h1>WebDesk</h1>
             </div>
-            <div className="left-nav">
-                <h1>{userInfo ? userInfo.username : ""}</h1>
-                <a href="home"><h1>Apps</h1></a>
-                <button onClick={handleLogout}>Logout</button>
+            <div className="right-nav">
+                {userInfo ? <a href="home" className="nav-link">{userInfo.username}</a> : ""}
+                <a href="home" className="nav-link">Apps</a>
+                <button onClick={handleLogout} className="nav-button">Logout</button>
             </div>
         </div>
         </>

@@ -74,7 +74,7 @@ const LoginComponent = () => {
 				</button>
                 <br/>
                 <br/>
-                <a href="register">Sign Up</a>
+                <a href="register">Don't have an account? Sign Up</a>
 			</form>
         </div>
         </section>
