@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import refreshExpiredTokenHandler from "../utils/refreshexpired";
 import { useNavigate } from "react-router-dom";
+import '../Styles/Navbarstyle.css'
 
 const NavBar = () => {
 
@@ -26,7 +27,7 @@ const NavBar = () => {
                 }
             }catch(error){
                 console.log(error.response?.data);
-                setUserInfo(false)
+                setUserInfo(null)
                 refreshExpiredTokenHandler()
                 getUserData()
             }
@@ -58,11 +59,17 @@ const NavBar = () => {
     }
 
     return(
-        <>
-            <h1>Home Page</h1>
-            <h1>{userInfo ? userInfo.username : "Loading..."}</h1>
-            <button onClick={handleLogout}>Logout</button>
-        </>
+        <div className="nav">
+            <span>
+                <h1>{userInfo ? userInfo.username : "Loading..."}</h1>
+            </span>
+            <span>
+                <a href="home"><h1>WebDesk</h1></a>
+            </span>
+            <span>
+                <button onClick={handleLogout}>Logout</button>
+            </span>
+        </div>
     )
 };
 
