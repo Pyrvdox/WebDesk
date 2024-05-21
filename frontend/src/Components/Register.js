@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const RegisterComponent = () => {
 
@@ -10,6 +11,8 @@ const RegisterComponent = () => {
         password1:"",
         password2:""
     })
+
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setFormData({
@@ -28,6 +31,7 @@ const RegisterComponent = () => {
         try{
             const response = await axios.post("http://127.0.0.1:8000/api/register/", formData)
             console.log(response.data)
+            navigate('/')
         }
         catch(error){
             console.log(error)
@@ -82,6 +86,8 @@ const RegisterComponent = () => {
             <button type="submit" disabled={isLoading} onClick={handleSubmit}>
                 Register
             </button>
+            <br/>
+            <a href="/">Already have an account ? Log in</a>
         </form>
     </div>
     )
