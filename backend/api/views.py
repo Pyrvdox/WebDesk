@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 
 # Create your views here.
 class RegisterAPIView(GenericAPIView):
@@ -65,3 +65,21 @@ class UserInfoAPIView(RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+    
+
+class NotesAPIView(generics.ListAPIView):
+    permission_classes = (IsAuthenticated, )
+    serializers_class = NotesSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Notes.objects.filter(author=user)    
+    
+
+class SingleNoteAPIView(generics.RetrieveAPIView):
+    permission_classes = (IsAuthenticated, )
+    serializer_class = NotesSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        return Notes.objects.filter(author=user) 

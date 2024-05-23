@@ -15,6 +15,7 @@ class Notes(models.Model):
     title = models.CharField(max_length=128)
     text = models.CharField()
     author = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
+    date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.title

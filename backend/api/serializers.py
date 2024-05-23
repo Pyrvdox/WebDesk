@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser
+from .models import CustomUser, Notes
 from django.contrib.auth import authenticate
 
 #Create serializers here
@@ -46,3 +46,7 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ("id","username","email")
 
 
+class NotesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notes
+        fields = ("id","title","text","author")
