@@ -3,6 +3,8 @@ import NavBar from "./Navbar";
 import axios from "axios";
 import refreshExpiredTokenHandler from "../utils/refreshexpired";
 import "../Styles/Notesstyle.css"
+import Delete from "../Assets/delete.png"
+import Edit from "../Assets/edit.png"
 
 const NotesComponent = () => {
 
@@ -37,13 +39,21 @@ const NotesComponent = () => {
         <>
             <NavBar />
             <section className="notes-section">
+            <h1 className="notes-title">My notes</h1>
                 <div className="notes-container">
                     <ul className="note-list">
                         {notesData ?
                             notesData.map(note => (
                             <li key={note.id} className="note-container">
-                                <h2>{note.title}</h2>
-                                <p>{note.text}</p>
+                                <span className="note-element">
+                                    <h2>{note.title}</h2>
+                                    <p>{note.text}</p>
+                                </span>
+                                <span className="note-element">
+                                <a href=""><img className="note-button-photo" src={Edit} alt="Edit" /></a>
+                                    <a href=""><img className="note-button-photo" src={Delete} alt="Delete" /></a>
+                                </span>
+
                             </li>
                         ))
                         :
@@ -51,6 +61,7 @@ const NotesComponent = () => {
                         }
                     </ul>
                 </div>
+                
             </section>
         </>
     )

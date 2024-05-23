@@ -33,20 +33,8 @@ const HomeComponent = () => {
                     <h2>Calculator</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
-                    <img src={Profile} alt="Profile" />
-                    <h2>Profile</h2>
-                </div></a>
-                <a href="" className="div-link"><div className="app-container">
-                    <img src={Settings} alt="Settings" />
-                    <h2>Settings</h2>
-                </div></a>
-                <a href="" className="div-link"><div className="app-container">
                     <img src={Wallet} alt="Wallet" />
                     <h2>MyBudget</h2>
-                </div></a>
-                <a href="" className="div-link"><div className="app-container">
-                    <img src={Info} alt="Info" />
-                    <h2>Informations</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Docs} alt="Docs" />
@@ -55,6 +43,23 @@ const HomeComponent = () => {
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Pictures} alt="Pictures" />
                     <h2>Gallery</h2>
+                </div></a>
+
+                
+            </div>
+            <h1 className="app-section-title">Utilites</h1>
+            <div className="content-bar">
+                <a href="" className="div-link"><div className="app-container">
+                    <img src={Profile} alt="Profile" />
+                    <h2>Profile</h2>
+                </div></a>
+                <a href="" className="div-link"><div className="app-container">
+                    <img src={Settings} alt="Settings" />
+                    <h2>Settings</h2>
+                </div></a>
+                <a href="" className="div-link"><div className="app-container">
+                    <img src={Info} alt="Info" />
+                    <h2>Informations</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Store} alt="Store" />
