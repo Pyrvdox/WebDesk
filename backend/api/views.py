@@ -69,11 +69,16 @@ class UserInfoAPIView(RetrieveAPIView):
 
 class NotesAPIView(generics.ListAPIView):
     permission_classes = (IsAuthenticated, )
-    serializers_class = NotesSerializer
+    serializer_class = NotesSerializer
 
     def get_queryset(self):
         user = self.request.user
-        return Notes.objects.filter(author=user)    
+        return Notes.objects.filter(author=user)
+
+    def get(self, request, *args, **kwargs):
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
     
 
 class SingleNoteAPIView(generics.RetrieveAPIView):

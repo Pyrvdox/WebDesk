@@ -20,7 +20,7 @@ const HomeComponent = () => {
         <section className="home-section">
         <h1 className="app-section-title">My applications</h1>
             <div className="content-bar">
-                <a href="" className="div-link"><div className="app-container">
+                <a href="notes" className="div-link"><div className="app-container">
                     <img src={Notes} alt="Notes" />
                     <h2>Notes</h2>
                 </div></a>
