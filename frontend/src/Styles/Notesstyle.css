@@ -38,3 +38,14 @@ ul {
     text-decoration: none;
     color: rgb(0, 0, 0);
 }
+
+.new-note-button-photo {
+    width: 25px; 
+    height: 25px; 
+    object-fit: cover; 
+}
+
+.new-note-button{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}

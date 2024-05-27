@@ -22,6 +22,7 @@ const NavBar = () => {
                         }
                     };
                     const response = await axios.get("http://127.0.0.1:8000/api/user/", config)
+                    localStorage.setItem("user", response.data.username)
                     setUserInfo(response.data)
                     console.log(userInfo)
                 }
@@ -50,6 +51,7 @@ const NavBar = () => {
                 await axios.post("http://127.0.0.1:8000/api/logout/", {"refresh": refreshToken}, config)
                 localStorage.removeItem("accessToken");
                 localStorage.removeItem("refreshToken");
+                localStorage.removeItem("user")
                 setUserInfo(null)
                 console.log("Logout successful!")
                 navigate('/')

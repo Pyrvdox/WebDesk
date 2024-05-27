@@ -64,7 +64,9 @@ class UserInfoAPIView(RetrieveAPIView):
     serializer_class = UserSerializer
 
     def get_object(self):
-        return self.request.user
+        user = self.request.user
+        print(user)
+        return user
     
 
 class NotesAPIView(generics.ListAPIView):
