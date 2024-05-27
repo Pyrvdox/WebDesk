@@ -88,3 +88,5 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
     def get_queryset(self):
         user = self.request.user
         return Notes.objects.filter(author=user) 
+    
+    

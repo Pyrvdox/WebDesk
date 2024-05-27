@@ -45,12 +45,10 @@ const NotesComponent = () => {
                         {notesData ?
                             notesData.map(note => (
                             <li key={note.id} className="note-container">
-                                <span className="note-element">
+                                <a href="" className="to-note"><span className="note-element">
                                     <h2>{note.title}</h2>
-                                    <p>{note.text}</p>
-                                </span>
+                                </span></a>
                                 <span className="note-element">
-                                <a href=""><img className="note-button-photo" src={Edit} alt="Edit" /></a>
                                     <a href=""><img className="note-button-photo" src={Delete} alt="Delete" /></a>
                                 </span>
 
