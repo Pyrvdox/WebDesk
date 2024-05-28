@@ -2,6 +2,41 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    min-height: 90vh;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 20px;
+
+}
+
+.note-box {
+    display: flex;
+    flex-direction: column; 
+    width: 40%;
+    min-height: 75vh;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.note-header {
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.note-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.note-body {
+    padding: 20px;
+}
+
+.note-body p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #555;
 }

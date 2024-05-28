@@ -94,9 +94,10 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
             return Response({"error":"Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
 
         try:
-            note = Notes.objects.get(id=id, author=user)
+            note = Notes.objects.get(pk=id, author=user)
         except Notes.DoesNotExist:
             return Response({"error": "Note not found"}, status=status.HTTP_404_NOT_FOUND)
     
         serializer = NotesSerializer(note)
+        print(serializer.data)
         return Response(serializer.data)

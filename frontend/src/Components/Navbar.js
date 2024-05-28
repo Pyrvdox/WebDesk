@@ -72,7 +72,7 @@ const NavBar = () => {
             </div>
             <div className="right-nav">
                 {userInfo ? <a href="home" className="nav-link">{userInfo.username}</a> : ""}
-                <a href="home" className="nav-link">Apps</a>
+                <a href="http://localhost:3000/home" className="nav-link">Apps</a>
                 <a href="home" className="nav-link">Settings</a>
                 <button onClick={handleLogout} className="nav-button">Logout</button>
             </div>
