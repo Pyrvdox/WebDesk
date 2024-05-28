@@ -36,7 +36,7 @@ body {
     align-items: center; 
     border-radius: 10px; 
     padding: 25px;
-
+    transition: transform 0.2s ease-in-out;
 }
 
 .app-container img {
@@ -44,7 +44,7 @@ body {
     height: 125px; 
     object-fit: cover; 
     margin-bottom: 0.5rem; 
-
+    transition: transform 0.2s ease-in-out;
 }
 
 .app-container h2 {
@@ -56,3 +56,8 @@ body {
 .div-link { 
     text-decoration: none;
 }
+
+.app-container:hover{
+    transform: scale(1.1);
+}
+

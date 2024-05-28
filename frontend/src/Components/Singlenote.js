@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "./Navbar";
 import '../Styles/singlenotestyle.css'
 import { useLocation } from "react-router-dom";
@@ -9,6 +9,8 @@ const Singlenote = () => {
 
     const location = useLocation();
     const { user, noteId } = location.state || {};
+
+    useEffect(()=>{},[])
 
     return(
         <>
