@@ -87,8 +87,16 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated, )
     serializer_class = NotesSerializer
 
-    def get_queryset(self):
+    def get(self, request, username, id):
         user = self.request.user
-        return Notes.objects.filter(author=user) 
+
+        if user.username != username:
+            return Response({"error":"Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        try:
+            note = Notes.objects.get(id=id, author=user)
+        except Notes.DoesNotExist:
+            return Response({"error": "Note not found"}, status=status.HTTP_404_NOT_FOUND)
     
-    
+        serializer = NotesSerializer(note)
+        return Response(serializer.data)

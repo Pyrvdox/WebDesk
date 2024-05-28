@@ -5,10 +5,13 @@ import refreshExpiredTokenHandler from "../utils/refreshexpired";
 import "../Styles/Notesstyle.css"
 import Delete from "../Assets/delete.png"
 import Edit from "../Assets/edit.png"
+import { useNavigate } from "react-router-dom";
 
 const NotesComponent = () => {
 
     const [notesData, setNotesData] = useState(null)
+
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const getNotes = async () => {
@@ -35,6 +38,12 @@ const NotesComponent = () => {
         getNotes()
     },[])
 
+    const getSingleNoteHandler = (e, noteId) => {
+        e.preventDefault()
+        const user = localStorage.getItem("user")
+        navigate(`/note/${user}/${noteId}`, { state: { user, noteId } })
+    }
+
     return(
         <>
             <NavBar />
@@ -47,7 +56,7 @@ const NotesComponent = () => {
                     <ul className="note-list">
                         {notesData ?
                             notesData.map(note => (
-                            <li key={note.id} className="note-container">
+                            <li key={note.id} value={note.id} className="note-container" onClick={(e) => getSingleNoteHandler(e, note.id)}>
                                 <a href="" className="to-note"><span className="note-element">
                                     <h2>{note.title}</h2>
                                 </span></a>

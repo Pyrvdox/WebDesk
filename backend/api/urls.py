@@ -9,6 +9,6 @@ urlpatterns = [
     path("token/refresh/",TokenRefreshView.as_view(), name='token-refresh'),
     path('user/',UserInfoAPIView.as_view(), name='user'),
     path('notes/',NotesAPIView.as_view(), name='notes'),
-    path('notes/<int:pk>/',SingleNoteAPIView.as_view(), name='note'),
+    path('notes/<str:username>/<int:pk>/',SingleNoteAPIView.as_view(), name='note'),
 
 ]
