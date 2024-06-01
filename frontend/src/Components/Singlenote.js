@@ -7,7 +7,11 @@ import refreshExpiredTokenHandler from "../utils/refreshexpired";
 
 const Singlenote = () => {
 
-    const [userNote, setUserNote] = useState('')
+    const [userNote, setUserNote] = useState({
+        title:'',
+        text:'',
+    })
+
 
     const location = useLocation();
     const { user, noteId } = location.state || {};
@@ -37,20 +41,46 @@ const Singlenote = () => {
         getUserNote()
     },[])
 
+    const checkNote = () => {
+        console.log(userNote)
+    }
+
+    const titleChangeHandler = (e) => {
+        setUserNote({
+            ...userNote,
+            title: e.target.value
+        })
+    }
+
+    const textChangeHandler = (e) => {
+        setUserNote({
+            ...userNote,
+            text: e.target.value
+        })
+    }
+
     return(
         <>
-            <NavBar/>
+            <NavBar />
             <section className="note-section">
-            <div className="note-box">
-                <div className="note-header">
-                    <h1>{userNote.title}</h1>
-                    <button>Edit</button>
+                <div className="note-box">
+                    <div className="note-header">
+                        <input 
+                            type="text" 
+                            value={userNote.title} 
+                            onChange={titleChangeHandler} 
+                            className="note-title-input"
+                        />
+                        <button onClick={checkNote }>Save</button>
+                    </div>
+                    <div className="note-body">
+                        <textarea 
+                            value={userNote.text} 
+                            onChange={textChangeHandler} 
+                            className="note-textarea"
+                        />
+                    </div>
                 </div>
-                <div className="note-body">
-                    <p>{userNote.text}</p>
-                </div>
-            </div>
-
             </section>
         </>
     )
