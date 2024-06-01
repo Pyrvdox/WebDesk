@@ -41,10 +41,6 @@ const Singlenote = () => {
         getUserNote()
     },[])
 
-    const checkNote = () => {
-        console.log(userNote)
-    }
-
     const titleChangeHandler = (e) => {
         setUserNote({
             ...userNote,
@@ -59,11 +55,33 @@ const Singlenote = () => {
         })
     }
 
+    const updateNoteHanlder = async (e) => {
+        e.preventDefault()
+        try {
+            const token = localStorage.getItem("accessToken");
+            if (token) {
+                const config = {
+                    headers: {
+                        "Authorization":`Bearer ${token}`
+                    }
+                };
+                const response = await axios.put(`http://127.0.0.1:8000/api/note/${user}/${noteId}/`,userNote, config)
+                console.log('Note updated:', response.data);
+            }
+        }
+        catch(error) {
+            console.log(error.response?.data);
+            refreshExpiredTokenHandler()
+            updateNoteHanlder()
+        }
+    }
+
     return(
         <>
             <NavBar />
             <section className="note-section">
                 <div className="note-box">
+                <form>
                     <div className="note-header">
                         <input 
                             type="text" 
@@ -71,7 +89,7 @@ const Singlenote = () => {
                             onChange={titleChangeHandler} 
                             className="note-title-input"
                         />
-                        <button onClick={checkNote }>Save</button>
+                        <button onClick={updateNoteHanlder}>Save</button>
                     </div>
                     <div className="note-body">
                         <textarea 
@@ -80,6 +98,7 @@ const Singlenote = () => {
                             className="note-textarea"
                         />
                     </div>
+                </form>
                 </div>
             </section>
         </>
