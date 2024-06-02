@@ -82,6 +82,20 @@ class NotesAPIView(generics.ListAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
     
+    def post(self, request, *args, **kwargs):
+        user = self.request.user
+        
+        noteData = request.data
+        noteData['author'] = user.id
+
+        serializer = NotesSerializer(data=noteData)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        
+        print(serializer.errors)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
 
 class SingleNoteAPIView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticated, )
@@ -119,16 +133,3 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-    def post(self, request, username, id):
-        user = self.request.user
-
-        if user.username != username:
-            return Response({"error": "Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
-
-        try:
-            serializer = NotesSerializer(data=request.data)
-            if serializer.is_valid():
-                serializer.save(author=request.user)
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-        except:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

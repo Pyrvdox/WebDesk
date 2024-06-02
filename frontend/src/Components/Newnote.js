@@ -3,6 +3,7 @@ import NavBar from './Navbar';
 import '../Styles/singlenotestyle.css'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import refreshExpiredTokenHandler from '../utils/refreshexpired';
 
 
 const Newnote = () => { 
@@ -21,18 +22,25 @@ const Newnote = () => {
         });
       };
 
-    const checkForm = (e) => {
-        e.preventDefault();
-        console.log(newNoteForm)
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const response = await axios.post()
+            const token = localStorage.getItem("accessToken");
+            if (token) {
+                const config = {
+                    headers: {
+                        "Authorization":`Bearer ${token}`
+                    }
+                };
+            const response = await axios.post(`http://127.0.0.1:8000/api/notes/`, newNoteForm, config)
+            console.log('Note created:', response.data);
+            navigate('/notes')
+            }
         }
         catch (error){
-            console.log(error)
+            console.log(error.response)
+            await refreshExpiredTokenHandler()
+            handleSubmit(e)
         }
     }
 
@@ -51,7 +59,7 @@ const Newnote = () => {
                             placeholder='title'
                             onChange={handleChange}
                         />
-                        <button onClick={checkForm}>Save</button>
+                        <button type="submit" onClick={handleSubmit}>Save</button>
                     </div>
                     <div className="note-body">
                         <textarea  
