@@ -17,5 +17,8 @@ class Notes(models.Model):
     author = models.ForeignKey(CustomUser, on_delete=models.DO_NOTHING)
     date = models.DateField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['-date']
+        
     def __str__(self):
         return self.title

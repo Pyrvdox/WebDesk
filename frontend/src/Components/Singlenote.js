@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./Navbar";
 import '../Styles/singlenotestyle.css'
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import refreshExpiredTokenHandler from "../utils/refreshexpired";
 
@@ -11,6 +11,8 @@ const Singlenote = () => {
         title:'',
         text:'',
     })
+
+    const navigate = useNavigate()
 
 
     const location = useLocation();
@@ -74,6 +76,7 @@ const Singlenote = () => {
             refreshExpiredTokenHandler()
             updateNoteHanlder()
         }
+        navigate('/notes')
     }
 
     return(

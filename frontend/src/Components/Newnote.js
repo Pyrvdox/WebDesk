@@ -34,7 +34,7 @@ const Newnote = () => {
                 };
             const response = await axios.post(`http://127.0.0.1:8000/api/notes/`, newNoteForm, config)
             console.log('Note created:', response.data);
-            navigate('/notes')
+            
             }
         }
         catch (error){
@@ -42,6 +42,7 @@ const Newnote = () => {
             await refreshExpiredTokenHandler()
             handleSubmit(e)
         }
+        navigate('/notes')
     }
 
     return(
