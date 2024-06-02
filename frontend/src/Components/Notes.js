@@ -39,9 +39,37 @@ const NotesComponent = () => {
     },[])
 
     const getSingleNoteHandler = (e, noteId) => {
-        e.preventDefault()
+        e.preventDefault();
         const user = localStorage.getItem("user")
         navigate(`/note/${user}/${noteId}`, { state: { user, noteId } })
+    }
+
+    const noteDeleteHandler = async (e, noteId) => {
+        e.preventDefault();
+        try {
+            const token = localStorage.getItem("accessToken");
+            const user = localStorage.getItem("user")
+            if (token) {
+                const config = {
+                    headers: {
+                        "Authorization":`Bearer ${token}`
+                    }
+                };
+                const response = await axios.get(`http://127.0.0.1:8000/api/note/${user}/${noteId}/`, config)
+                setNotesData(response.data)
+            }
+            console.log("Notes: ",notesData)
+        }
+        catch(error) {
+            console.log(error.response?.data);
+            refreshExpiredTokenHandler()
+            noteDeleteHandler()
+        }
+    }
+
+    const checkID = (e, noteId) => {
+        e.preventDefault();
+        console.log(noteId)
     }
 
     return(
@@ -61,7 +89,7 @@ const NotesComponent = () => {
                                     <h2>{note.title}</h2>
                                 </span></a>
                                 <span className="note-element">
-                                    <a href=""><img className="note-button-photo" src={Delete} alt="Delete" /></a>
+                                    <a href="" onClick={(e) => checkID(e, note.id)}><img className="note-button-photo" src={Delete} alt="Delete" /></a>
                                 </span>
 
                             </li>

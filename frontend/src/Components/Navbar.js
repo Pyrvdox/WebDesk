@@ -68,7 +68,9 @@ const NavBar = () => {
         <>
         <div className="nav">
             <div>
-                <h1>WebDesk</h1>
+            <a href="http://localhost:3000/home" className="logo-a-link">
+            <h1>WebDesk</h1>
+            </a>
             </div>
             <div className="right-nav">
                 {userInfo ? <a href="home" className="nav-link">{userInfo.username}</a> : ""}

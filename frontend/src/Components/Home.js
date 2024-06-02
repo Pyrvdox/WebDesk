@@ -57,7 +57,7 @@ const HomeComponent = () => {
                     <img src={Settings} alt="Settings" />
                     <h2>Settings</h2>
                 </div></a>
-                <a href="" className="div-link"><div className="app-container">
+                <a href="https://github.com/Pyrvdox" className="div-link"><div className="app-container">
                     <img src={Info} alt="Info" />
                     <h2>Informations</h2>
                 </div></a>
