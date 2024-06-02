@@ -6,6 +6,7 @@ import HomeComponent from './Components/Home';
 import Footer from './Components/Footer';
 import NotesComponent from './Components/Notes';
 import Singlenote from './Components/Singlenote';
+import Newnote from './Components/Newnote';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='register' element={<RegisterComponent />}/>
         <Route path='notes' element={<NotesComponent />}/>
         <Route path='note/:user/:id' element={<Singlenote />}/>
+        <Route path='note/new' element={<Newnote />}/>
       </Routes>
     <Footer />  
     </BrowserRouter>

@@ -49,7 +49,7 @@ const NotesComponent = () => {
             <NavBar />
             <section className="notes-section">
             <h1 className="notes-title">My notes</h1>
-            <a href="" className="new-note-button"><div>
+            <a href="note/new" className="new-note-button"><div>
                 <h1>New note <img className="new-note-button-photo" src={Edit} alt="Edit" /></h1>
             </div></a>
                 <div className="notes-container">
