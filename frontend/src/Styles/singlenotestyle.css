@@ -33,7 +33,9 @@
 }
 
 .note-body {
+    flex-grow: 1; 
     padding: 20px;
+    display: flex;
 }
 
 .note-textarea {
@@ -43,8 +45,10 @@
     border: none;
     outline: none;
     width: 100%;
-    height: calc(100% - 40px); 
+    height: 100%; 
     resize: none;
+    flex-grow: 1; 
+    min-height: 70vh;
 }
 
 .note-title-input::placeholder,

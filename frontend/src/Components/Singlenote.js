@@ -57,6 +57,7 @@ const Singlenote = () => {
         })
     }
 
+
     const updateNoteHanlder = async (e) => {
         e.preventDefault()
         try {
@@ -80,10 +81,10 @@ const Singlenote = () => {
     }
 
     return(
-        <>
-            <NavBar />
-            <section className="note-section">
-                <div className="note-box">
+    <>
+        <NavBar />
+        <section className="note-section">
+            <div className="note-box">
                 <form>
                     <div className="note-header">
                         <input 
@@ -102,9 +103,9 @@ const Singlenote = () => {
                         />
                     </div>
                 </form>
-                </div>
-            </section>
-        </>
+            </div>
+        </section>
+    </>
     )
 }
 

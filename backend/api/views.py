@@ -93,8 +93,7 @@ class NotesAPIView(generics.ListAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
-        print(serializer.errors)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data, status=status.HTTP_400_BAD_REQUEST)
     
 
 class SingleNoteAPIView(generics.RetrieveAPIView):
@@ -132,4 +131,20 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, username, id):
+        user = self.request.user
+
+        if user.username != username:
+            return Response({"error": "Unauthorized"}, status=status.HTTP_401_UNAUTHORIZED)
+
+        try:
+            note = Notes.objects.get(pk=id, author=user)
+        except Notes.DoesNotExist:
+            return Response({"error": "Note not found"}, status=status.HTTP_404_NOT_FOUND)
+
+        note.delete()
+        notes = Notes.objects.filter(author=user)
+        serializer = NotesSerializer(notes, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     

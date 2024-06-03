@@ -55,7 +55,7 @@ const NotesComponent = () => {
                         "Authorization":`Bearer ${token}`
                     }
                 };
-                const response = await axios.get(`http://127.0.0.1:8000/api/note/${user}/${noteId}/`, config)
+                const response = await axios.delete(`http://127.0.0.1:8000/api/note/${user}/${noteId}/`, config)
                 setNotesData(response.data)
             }
             console.log("Notes: ",notesData)
@@ -63,13 +63,8 @@ const NotesComponent = () => {
         catch(error) {
             console.log(error.response?.data);
             refreshExpiredTokenHandler()
-            noteDeleteHandler()
+            noteDeleteHandler(e, noteId)
         }
-    }
-
-    const checkID = (e, noteId) => {
-        e.preventDefault();
-        console.log(noteId)
     }
 
     return(
@@ -84,12 +79,12 @@ const NotesComponent = () => {
                     <ul className="note-list">
                         {notesData ?
                             notesData.map(note => (
-                            <li key={note.id} value={note.id} className="note-container" onClick={(e) => getSingleNoteHandler(e, note.id)}>
-                                <a href="" className="to-note"><span className="note-element">
+                            <li key={note.id} value={note.id} className="note-container" >
+                                <a href="" className="to-note"><span className="note-element" onClick={(e) => getSingleNoteHandler(e, note.id)}>
                                     <h2>{note.title}</h2>
                                 </span></a>
                                 <span className="note-element">
-                                    <a href="" onClick={(e) => checkID(e, note.id)}><img className="note-button-photo" src={Delete} alt="Delete" /></a>
+                                    <a href="" onClick={(e) => noteDeleteHandler(e, note.id)}><img className="note-button-photo" src={Delete} alt="Delete" /></a>
                                 </span>
 
                             </li>
