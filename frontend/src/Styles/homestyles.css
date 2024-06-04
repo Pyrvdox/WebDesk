@@ -27,8 +27,8 @@ body {
 .app-container {
     background-color: white; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    width: 150px; 
-    height: 150px; 
+    width: 175px; 
+    height: 175px; 
     margin: 1rem; 
     display: flex;
     flex-direction: column; 
@@ -40,8 +40,8 @@ body {
 }
 
 .app-container img {
-    width: 125px; 
-    height: 125px; 
+    width: 150px; 
+    height: 150px; 
     object-fit: cover; 
     margin-bottom: 0.5rem; 
     transition: transform 0.2s ease-in-out;

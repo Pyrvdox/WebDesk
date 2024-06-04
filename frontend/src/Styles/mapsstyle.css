@@ -1,0 +1,29 @@
+@import url('https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+
+.map-section {
+    min-height: 80vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.map-title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.map-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-map {
+    height: 700px;
+    width: 1200px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+}

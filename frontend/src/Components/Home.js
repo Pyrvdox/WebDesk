@@ -24,7 +24,7 @@ const HomeComponent = () => {
                     <img src={Notes} alt="Notes" />
                     <h2>Notes</h2>
                 </div></a>
-                <a href="" className="div-link"><div className="app-container">
+                <a href="maps" className="div-link"><div className="app-container">
                     <img src={Map} alt="Map" />
                     <h2>Maps</h2>
                 </div></a>

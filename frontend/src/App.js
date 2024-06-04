@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import NotesComponent from './Components/Notes';
 import Singlenote from './Components/Singlenote';
 import Newnote from './Components/Newnote';
+import MapsComponent from './Components/Maps';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path='notes' element={<NotesComponent />}/>
         <Route path='note/:user/:id' element={<Singlenote />}/>
         <Route path='note/new' element={<Newnote />}/>
+        <Route path='maps' element={<MapsComponent />}/>
       </Routes>
     <Footer />  
     </BrowserRouter>
