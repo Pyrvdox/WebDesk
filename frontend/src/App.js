@@ -8,6 +8,7 @@ import NotesComponent from './Components/Notes';
 import Singlenote from './Components/Singlenote';
 import Newnote from './Components/Newnote';
 import MapsComponent from './Components/Maps';
+import CalculatorComponent from './Components/Calculator';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='note/:user/:id' element={<Singlenote />}/>
         <Route path='note/new' element={<Newnote />}/>
         <Route path='maps' element={<MapsComponent />}/>
+        <Route path='calculator' element={<CalculatorComponent />}/>
       </Routes>
     <Footer />  
     </BrowserRouter>

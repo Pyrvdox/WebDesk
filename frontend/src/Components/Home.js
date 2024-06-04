@@ -28,7 +28,7 @@ const HomeComponent = () => {
                     <img src={Map} alt="Map" />
                     <h2>Maps</h2>
                 </div></a>
-                <a href="" className="div-link"><div className="app-container">
+                <a href="calculator" className="div-link"><div className="app-container">
                     <img src={Calculator} alt="Calculator" />
                     <h2>Calculator</h2>
                 </div></a>
