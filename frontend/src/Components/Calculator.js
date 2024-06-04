@@ -9,7 +9,10 @@ const CalculatorComponent = () => {
         <section className="calc-section">
         <h1 className="calc-title">Calculator</h1>
             <div className="calc-wrapper">
-                <input></input>
+                <div className="calc-header">
+                    <input className="calc-input" placeholder="0.0"></input>
+                </div>
+                
             </div>
         </section>
         </>
