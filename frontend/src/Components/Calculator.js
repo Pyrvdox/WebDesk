@@ -35,8 +35,8 @@ const CalculatorComponent = () => {
                     <input className="calc-input" placeholder="Enter your equation" name='calc' value={equation.calc} onChange={handleChange}></input>
                 </div>
                 <div className="calc-results">
-                    <h2>Result: </h2>
-                    <h2>{resultInfo}</h2>
+                    <h2 className="results-info">Result: </h2>
+                    <h2 className="results-info">{resultInfo}</h2>
                 </div>
                 <div className="calc-body">
                     <button className="calc-button reset-calc-button" onClick={handleReset}>Reset</button>
