@@ -4,8 +4,8 @@ import '../Styles/calcstyle.css'
 
 const CalculatorComponent = () => {
 
-    const [equation, setEquation] = useState({calc:''})
-    const [resultInfo, setResultInfo] = useState({result:''})
+    const [equation, setEquation] = useState({calc:''});
+    const [resultInfo, setResultInfo] = useState('');
 
     const handleChange = (e) => {
         setEquation({
@@ -15,14 +15,15 @@ const CalculatorComponent = () => {
       };
 
     const handleSubmit = () => {
-        console.log(equation)
-        setResultInfo(equation.calc)
-        console.log(resultInfo)
-        setEquation({calc:''})
+        console.log(equation);
+        setResultInfo(equation.calc);
+        console.log(resultInfo);
+        setEquation({calc:''});
     }
 
     const handleReset = () => {
-        setEquation({calc:''})
+        setEquation({calc:''});
+        setResultInfo('');
     }
 
     return (
