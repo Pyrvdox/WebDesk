@@ -11,6 +11,8 @@ import Info from '../Assets/ainfo.png'
 import Docs from '../Assets/docs.png'
 import Pictures from '../Assets/pictures.png'
 import Store from '../Assets/store.png'
+import Weather from '../Assets/weather.png'
+import Search from '../Assets/search.png'
 
 const HomeComponent = () => {
 
@@ -44,7 +46,14 @@ const HomeComponent = () => {
                     <img src={Pictures} alt="Pictures" />
                     <h2>Gallery</h2>
                 </div></a>
-
+                <a href="" className="div-link"><div className="app-container">
+                    <img src={Search} alt="Search" />
+                    <h2>Search</h2>
+                </div></a>
+                <a href="" className="div-link"><div className="app-container">
+                    <img src={Weather} alt="Weather" />
+                    <h2>Weather</h2>
+                </div></a>
                 
             </div>
             <h1 className="app-section-title">Utilites</h1>
