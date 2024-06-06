@@ -5,6 +5,7 @@ from .serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status, generics
+from rest_framework.views import APIView
 
 # Create your views here.
 class RegisterAPIView(GenericAPIView):
@@ -149,3 +150,8 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
 
+class CalculatorAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        equation = request.data
+        equation = int(equation)
+        return Response(equation, status=status.HTTP_200_OK)
