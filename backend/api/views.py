@@ -153,5 +153,6 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
 class CalculatorAPIView(APIView):
     def post(self, request, *args, **kwargs):
         equation = request.data
-        equation = eval(equation)
+        print(equation['calc'])
+        equation = eval(equation['calc'])
         return Response(equation, status=status.HTTP_200_OK)
