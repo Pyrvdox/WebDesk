@@ -151,6 +151,8 @@ class SingleNoteAPIView(generics.RetrieveAPIView):
     
 
 class CalculatorAPIView(APIView):
+    permission_classes = (IsAuthenticated, )
+
     def post(self, request, *args, **kwargs):
         equation = request.data
         print(equation['calc'])
