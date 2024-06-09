@@ -16,9 +16,31 @@ const CalculatorComponent = () => {
         });
       };
 
+
+    const validateEquation = (equation) => {
+        if (!equation) {
+            return 'null';
+        }
+
+    const validEquationRegex = /^[0-9+\-*/(). ]+$/;
+        if (!validEquationRegex.test(equation)) {
+            return 'invalid characters';
+        }
+
+        return null;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log(equation);
+
+
+        const validationError = validateEquation(equation.calc);
+        if (validationError) {
+            setResultInfo(validationError);
+            return;
+        }
+        
         try {
             const token = localStorage.getItem("accessToken");
             if (token) {

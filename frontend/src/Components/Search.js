@@ -19,7 +19,7 @@ const SearchComponent = () => {
 
         let link = String(searchLink.link); 
 
-        if(link == ''){
+        if(link === ''){
             return
         }
         if (!link.startsWith('http://') && !link.startsWith('https://')) {

@@ -156,6 +156,14 @@ class CalculatorAPIView(APIView):
     def post(self, request, *args, **kwargs):
         equation = request.data
         print(equation['calc'])
-        result = eval(equation['calc'])
-        print(result)
-        return Response(result, status=status.HTTP_200_OK)
+
+        if not equation:
+            return Response({'error': 'No equation provided'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            result = eval(equation['calc'])
+            print(result)
+            return Response(result, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
