@@ -10,5 +10,6 @@ urlpatterns = [
     path('user/',UserInfoAPIView.as_view(), name='user'),
     path('notes/',NotesAPIView.as_view(), name='notes'),
     path('note/<str:username>/<int:id>/',SingleNoteAPIView.as_view(), name='note'),
+    path('calculator/',CalculatorAPIView.as_view(), name='calculator'),
 
 ]

@@ -156,5 +156,6 @@ class CalculatorAPIView(APIView):
     def post(self, request, *args, **kwargs):
         equation = request.data
         print(equation['calc'])
-        equation = eval(equation['calc'])
-        return Response(equation, status=status.HTTP_200_OK)
+        result = eval(equation['calc'])
+        print(result)
+        return Response(result, status=status.HTTP_200_OK)

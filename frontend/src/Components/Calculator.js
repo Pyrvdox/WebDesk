@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import NavBar from "./Navbar";
 import '../Styles/calcstyle.css'
+import axios from "axios";
+import refreshExpiredTokenHandler from "../utils/refreshexpired";
 
 const CalculatorComponent = () => {
 
@@ -14,9 +16,27 @@ const CalculatorComponent = () => {
         });
       };
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         console.log(equation);
-        setResultInfo(equation.calc);
+        try {
+            const token = localStorage.getItem("accessToken");
+            if (token) {
+                const config = {
+                    headers: {
+                        "Authorization":`Bearer ${token}`
+                    }
+                };
+                const response = await axios.post(`http://127.0.0.1:8000/api/calculator/`,equation, config)
+                console.log(response.data);
+                setResultInfo(response.data);
+            }
+        }
+        catch(error) {
+            console.log(error.response?.data);
+            refreshExpiredTokenHandler();
+            handleSubmit(e);
+        }
         console.log(resultInfo);
         setEquation({calc:''});
     }
