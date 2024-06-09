@@ -13,6 +13,7 @@ import Pictures from '../Assets/pictures.png'
 import Store from '../Assets/store.png'
 import Weather from '../Assets/weather.png'
 import Search from '../Assets/search.png'
+import Calendar from '../Assets/calendar.png'
 
 const HomeComponent = () => {
 
@@ -51,8 +52,8 @@ const HomeComponent = () => {
                     <h2>Search</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
-                    <img src={Weather} alt="Weather" />
-                    <h2>Weather</h2>
+                    <img src={Calendar} alt="Calendar" />
+                    <h2>Calendar</h2>
                 </div></a>
                 
             </div>
