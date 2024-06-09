@@ -9,6 +9,7 @@ import Singlenote from './Components/Singlenote';
 import Newnote from './Components/Newnote';
 import MapsComponent from './Components/Maps';
 import CalculatorComponent from './Components/Calculator';
+import SearchComponent from './Components/Search';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='note/new' element={<Newnote />}/>
         <Route path='maps' element={<MapsComponent />}/>
         <Route path='calculator' element={<CalculatorComponent />}/>
+        <Route path='search' element={<SearchComponent />}/>
       </Routes>
     <Footer />  
     </BrowserRouter>
