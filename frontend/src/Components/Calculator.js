@@ -19,7 +19,7 @@ const CalculatorComponent = () => {
 
     const validateEquation = (equation) => {
         if (!equation) {
-            return 'null';
+            return 'nope';
         }
 
     const validEquationRegex = /^[0-9+\-*/(). ]+$/;
