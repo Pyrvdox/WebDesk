@@ -14,6 +14,7 @@ import Store from '../Assets/store.png'
 import Weather from '../Assets/weather.png'
 import Search from '../Assets/search.png'
 import Calendar from '../Assets/calendar.png'
+import Timer from '../Assets/stopwatch.png'
 
 const HomeComponent = () => {
 
@@ -25,11 +26,11 @@ const HomeComponent = () => {
             <div className="content-bar">
                 <a href="notes" className="div-link"><div className="app-container">
                     <img src={Notes} alt="Notes" />
-                    <h2>Notes</h2>
+                    <h2>Simple Notes</h2>
                 </div></a>
                 <a href="maps" className="div-link"><div className="app-container">
                     <img src={Map} alt="Map" />
-                    <h2>Maps</h2>
+                    <h2>DeskMaps</h2>
                 </div></a>
                 <a href="calculator" className="div-link"><div className="app-container">
                     <img src={Calculator} alt="Calculator" />
@@ -37,23 +38,23 @@ const HomeComponent = () => {
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Wallet} alt="Wallet" />
-                    <h2>MyBudget</h2>
+                    <h2>My Budget</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Docs} alt="Docs" />
-                    <h2>Documents</h2>
+                    <h2>My Documents</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Pictures} alt="Pictures" />
-                    <h2>Gallery</h2>
+                    <h2>Photo Gallery</h2>
                 </div></a>
                 <a href="search" className="div-link"><div className="app-container">
                     <img src={Search} alt="Search" />
-                    <h2>Search</h2>
+                    <h2>Web Search</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">
                     <img src={Calendar} alt="Calendar" />
-                    <h2>Calendar</h2>
+                    <h2>My Time</h2>
                 </div></a>
                 
             </div>
