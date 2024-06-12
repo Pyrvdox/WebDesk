@@ -36,8 +36,8 @@ const HomeComponent = () => {
                     <img src={Calculator} alt="Calculator" />
                     <h2>Calculator</h2>
                 </div></a>
-                <a href="" className="div-link"><div className="app-container">
-                    <img src={Wallet} alt="Wallet" />
+                <a href="budget" className="div-link"><div className="app-container">
+                    <img src={Wallet} alt="Budget" />
                     <h2>My Budget</h2>
                 </div></a>
                 <a href="" className="div-link"><div className="app-container">

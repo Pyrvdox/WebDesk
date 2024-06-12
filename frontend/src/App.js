@@ -10,6 +10,7 @@ import Newnote from './Components/Newnote';
 import MapsComponent from './Components/Maps';
 import CalculatorComponent from './Components/Calculator';
 import SearchComponent from './Components/Search';
+import BudgetComponent from './Components/Bugdet';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='maps' element={<MapsComponent />}/>
         <Route path='calculator' element={<CalculatorComponent />}/>
         <Route path='search' element={<SearchComponent />}/>
+        <Route path='budget' element={<BudgetComponent />}/>
       </Routes>
     <Footer />  
     </BrowserRouter>
