@@ -21,9 +21,51 @@
 .budget-wrapper {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 25%;
     min-height: 15vh;
     background-color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+}
+
+.budget-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.budget-form label {
+    font-size: 1rem;
+    color: #555; 
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.budget-form input {
+    width: 130%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.budget-form button {
+    width: 130%;
+    padding: 0.75rem;
+    background-color: #007bff; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px;
+}
+
+.budget-form  button:hover {
+    background-color: #0056b3; 
 }

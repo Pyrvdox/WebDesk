@@ -12,7 +12,7 @@ const BudgetComponent = () => {
         <div className="budget-wrapper">
             <div className="budget-form">
                 <div className="budget-container">
-                <form>
+                <form className="budget-form">
                     <labe>Income</labe>
                     <input></input>
                     <labe>Commitments (rent etc.)</labe>
