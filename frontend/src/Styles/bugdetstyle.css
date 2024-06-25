@@ -44,7 +44,7 @@
 }
 
 .budget-form input {
-    width: 130%;
+    width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
@@ -54,7 +54,7 @@
 }
 
 .budget-form button {
-    width: 130%;
+    width: 100%;
     padding: 0.75rem;
     background-color: #007bff; 
     border: none;
