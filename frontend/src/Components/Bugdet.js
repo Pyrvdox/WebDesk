@@ -14,6 +14,8 @@ const BudgetComponent = () => {
         other:""
     })
 
+    const [budgetResponse, setBudgetResponse] = useState('');
+
     const handleChange = (e) => {
         setBudgetData({
           ...budgetData,
@@ -22,8 +24,7 @@ const BudgetComponent = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
-        console.log(budgetData)
+        e.preventDefault();
 
         try {
             const token = localStorage.getItem("accessToken");
@@ -33,9 +34,10 @@ const BudgetComponent = () => {
                         "Authorization":`Bearer ${token}`
                     }
                 };
-                const response = await axios.post(`http://127.0.0.1:8000/api/calculator/`, budgetData, config)
+                const response = await axios.post(`http://127.0.0.1:8000/api/mybudget/`, budgetData, config)
                 console.log(response.data);
-                setBudgetData(response.data);
+                setBudgetResponse(response.data);
+                console.log('response:   ',budgetResponse);
             }
         }
         catch(error) {

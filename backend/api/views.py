@@ -174,3 +174,4 @@ class BudgetAPIView(APIView):
     def post(self, request,*args, **kwargs):
         budget_data = request.data
         print(budget_data)
+        return Response(budget_data, status=status.HTTP_200_OK)
