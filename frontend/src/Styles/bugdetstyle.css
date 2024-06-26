@@ -69,3 +69,13 @@
 .budget-form  button:hover {
     background-color: #0056b3; 
 }
+
+.result-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    min-height: 15vh;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
