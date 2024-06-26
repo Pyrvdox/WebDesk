@@ -167,3 +167,10 @@ class CalculatorAPIView(APIView):
         except Exception as e:
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
+
+class BudgetAPIView(APIView):
+    permission_classes = (IsAuthenticated, )
+
+    def post(self, request,*args, **kwargs):
+        budget_data = request.data
+        print(budget_data)

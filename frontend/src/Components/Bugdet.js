@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import NavBar from "./Navbar";
 import '../Styles/bugdetstyle.css'
-
+import refreshExpiredTokenHandler from "../utils/refreshexpired";
+import axios from "axios";
 
 const BudgetComponent = () => {
 
@@ -20,9 +21,28 @@ const BudgetComponent = () => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(budgetData)
+
+        try {
+            const token = localStorage.getItem("accessToken");
+            if (token) {
+                const config = {
+                    headers: {
+                        "Authorization":`Bearer ${token}`
+                    }
+                };
+                const response = await axios.post(`http://127.0.0.1:8000/api/calculator/`, budgetData, config)
+                console.log(response.data);
+                setBudgetData(response.data);
+            }
+        }
+        catch(error) {
+            console.log(error.response?.data);
+            refreshExpiredTokenHandler();
+            handleSubmit(e);
+        }
     }
 
     return(
