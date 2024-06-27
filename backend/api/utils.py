@@ -1,0 +1,2 @@
+def calcBudgetFunction(data):
+    pass
