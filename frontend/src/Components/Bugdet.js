@@ -77,7 +77,21 @@ const BudgetComponent = () => {
 
     const budgetResultComponent = (
         <div    className="result-wrapper">
-            <p>Hello</p>
+            <h3>{budgetResponse.income}</h3>
+            <h3>{budgetResponse.sum_of_costs}</h3>
+            <h3>{budgetResponse.balance}</h3>
+
+            <h3>{budgetResponse.commitments}</h3>
+            <h3>{(budgetResponse.com_perc)} %</h3>
+
+            <h3>{budgetResponse.house}</h3>
+            <h3>{budgetResponse.house_perc} %</h3>
+
+            <h3>{budgetResponse.othercommitments}</h3>
+            <h3>{budgetResponse.other_com_perc} %</h3>
+
+            <h3>{budgetResponse.other}</h3>
+            <h3>{budgetResponse.other_perc} % </h3>
         </div>
     );
 
