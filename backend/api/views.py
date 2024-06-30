@@ -173,5 +173,30 @@ class BudgetAPIView(APIView):
 
     def post(self, request,*args, **kwargs):
         budget_data = request.data
+
+        income = int(budget_data['income'])
+        commitments = int(budget_data['commitments'])
+        house = int(budget_data['house'])
+        othercommitments = int(budget_data['othercommitments'])
+        other = int(budget_data['other'])
+
+        balance = income - (commitments + house + othercommitments + other)
+        budget_data['balance'] = balance
+
+        sum_of_costs = commitments + house + othercommitments + other
+        budget_data['sum_of_costs'] = sum_of_costs
+
+        com_perc = commitments / income * 100
+        budget_data['com_perc'] = com_perc
+
+        house_perc = house / income  * 100
+        budget_data['house_perc'] = house_perc
+
+        other_com_perc = othercommitments / income  * 100
+        budget_data['other_com_perc'] = other_com_perc
+
+        other_perc = other / income  * 100
+        budget_data['other_perc'] = other_perc
+
         print(budget_data)
         return Response(budget_data, status=status.HTTP_200_OK)
